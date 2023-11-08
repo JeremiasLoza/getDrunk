@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GetDrunkModule } from './get-drunk/get-drunk.module';
-import { HomePageComponent } from './get-drunk/components/home-page/home-page.component';
 
 @NgModule({
   declarations: [

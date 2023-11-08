@@ -4,22 +4,22 @@ export interface SearchResponse {
 
 export interface Drink {
     idDrink:                     string;
-    strDrink:                    string;
-    strDrinkAlternate:           null;
+    strDrink:                    null | string;
+    strDrinkAlternate:           null | string;
     strTags:                     null | string;
     strVideo:                    null | string;
     strCategory:                 null | string;
     strIBA:                      null | string;
-    strAlcoholic:                string;
-    strGlass:                    string;
-    strInstructions:             string;
+    strAlcoholic:                null | string;
+    strGlass:                    null | string;
+    strInstructions:             null | string;
     strInstructionsES:           null | string;
     strInstructionsDE:           null | string;
     strInstructionsFR:           null | string;
     strInstructionsIT:           null | string;
     "strInstructionsZH-HANS":    null | string;
     "strInstructionsZH-HANT":    null | string;
-    strDrinkThumb:               string;
+    strDrinkThumb:               null | string;
     strIngredient1:              null | string;
     strIngredient2:              null | string;
     strIngredient3:              null | string;
@@ -35,9 +35,9 @@ export interface Drink {
     strIngredient13:             null | string;
     strIngredient14:             null | string;
     strIngredient15:             null | string;
-    strMeasure1:                 string;
-    strMeasure2:                 string;
-    strMeasure3:                 string;
+    strMeasure1:                 null | string;
+    strMeasure2:                 null | string;
+    strMeasure3:                 null | string;
     strMeasure4:                 null | string;
     strMeasure5:                 null | string;
     strMeasure6:                 null | string;
@@ -52,6 +52,6 @@ export interface Drink {
     strMeasure15:                null | string;
     strImageSource:              null | string;
     strImageAttribution:         null | string;
-    strCreativeCommonsConfirmed: string;
+    strCreativeCommonsConfirmed: null | string;
     dateModified:                Date | null;
 }
