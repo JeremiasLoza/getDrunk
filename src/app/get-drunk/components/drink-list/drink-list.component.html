@@ -1,8 +1,12 @@
-<div *ngFor="let drink of drinks">
-    <div class="card" style="width: 18rem;">
-        <img [src]="drink.strDrinkThumb" class="card-img-top" alt="...">
-        <div class="card-body">
+<body class="bg-dark text-white">
+  <div class="row">
+    <div *ngFor="let drink of drinks" class="col-md-3 col-sm-6">
+      <div class="card mb-2 text-center bg-black text-white">
+        <img [src]="drink.strDrinkThumb" class="card-img-top" alt="..." />
+        <div class="card-body" style="font-family: Agrandir;">
           <h5 class="card-title">{{ drink.strDrink }}</h5>
         </div>
       </div>
-</div>
+    </div>
+  </div>
+</body>
