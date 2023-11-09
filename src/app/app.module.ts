@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GetDrunkModule } from './get-drunk/get-drunk.module';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { GetDrunkModule } from './get-drunk/get-drunk.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    GetDrunkModule
+    GetDrunkModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,24 @@
+.agrandirFont{
+    font-family: 'Agrandir';
+}
+
+.horizonFont{
+    font-family: 'Horizon';
+}
+
+.navBarClass{
+    font-family: 'Horizon';
+    color: white;
+    background-color: black;
+    font-size: larger;
+    padding: 10px;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.logo{
+    border-radius: 20px;
+    height: 70px;
+    width: 70px;
+}
+

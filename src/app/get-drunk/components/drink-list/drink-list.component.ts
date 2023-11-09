@@ -12,7 +12,7 @@ export class DrinkListComponent {
   drinkList: Drink[] = [];
 
   constructor(private DrinkService: DrinkService) {
-    this.DrinkService.searchDrink('Margarita');
+    this.DrinkService.searchDrink('M');
   }
 
   get drinks() {
