@@ -1,14 +1,12 @@
-<div class="card mb-2 text-center bg-dark">
-  <!-- <img
-    [src]="gif.images.downsized_medium.url"
-    [alt]="gif.title"
-    class="card-img-top"
-  /> -->
-
-  <div class="card-body text-white">
-    <p class="card-text">
-      <!-- {{ gif.title }} -->
-      Titulo
-    </p>
+<a [routerLink]="['/drink', drink.idDrink]">
+  <div class="card mb-2 text-center bg-black text-white">
+    <img
+      [src]="drink.strDrinkThumb"
+      class="card-img-top"
+      alt="drink.strDrink"
+    />
+    <div class="card-body" style="font-family: Agrandir">
+      <h5 class="card-title">{{ drink.strDrink }}</h5>
+    </div>
   </div>
-</div>
+</a>
