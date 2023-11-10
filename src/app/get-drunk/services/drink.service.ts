@@ -8,8 +8,9 @@ import { Drink, SearchResponse } from '../interfaces/drink.interface';
 })
 export class DrinkService {
   public drinkList: Drink[] = [];
+  public drink: Drink[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private serviceUrl: string = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
@@ -22,6 +23,18 @@ export class DrinkService {
       .get<SearchResponse>(`${this.serviceUrl}search.php`, { params })
       .subscribe((resp) => {
         this.drinkList = resp.drinks;
+      });
+  }
+
+  searchDrinkById(id: string) {
+    if (id.length === 0) return;
+
+    const params = new HttpParams().set('i', id);
+
+    this.http
+      .get<SearchResponse>(`${this.serviceUrl}lookup.php`, { params })
+      .subscribe((resp) => {
+        this.drink = resp.drinks;
       });
   }
 }

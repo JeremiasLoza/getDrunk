@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { DrinkService } from '../../services/drink.service';
+import { Drink } from '../../interfaces/drink.interface';
 
 @Component({
   selector: 'get-drunk-drink-card',
@@ -8,11 +8,6 @@ import { DrinkService } from '../../services/drink.service';
   styleUrls: ['./drink-card.component.css'],
 })
 export class DrinkCardComponent {
-  constructor(private DrinkService: DrinkService) {
-    this.DrinkService.searchDrink('Margarita');
-  }
-
-  get drinks() {
-    return this.DrinkService.drinkList;
-  }
+  @Input()
+  public drink!: Drink;
 }
