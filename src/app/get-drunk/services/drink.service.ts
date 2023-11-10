@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Drink, SearchResponse } from '../interfaces/drink.interface';
+import { Category, CategoryResponse } from '../interfaces/category.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,7 @@ import { Drink, SearchResponse } from '../interfaces/drink.interface';
 export class DrinkService {
   public drinkList: Drink[] = [];
   public drink: Drink[] = [];
+  public categoryList: Category[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -35,6 +37,16 @@ export class DrinkService {
       .get<SearchResponse>(`${this.serviceUrl}lookup.php`, { params })
       .subscribe((resp) => {
         this.drink = resp.drinks;
+      });
+  }
+
+  getCategories(){
+    const params = new HttpParams().set('c', 'list');
+
+    this.http
+      .get<CategoryResponse>(`${this.serviceUrl}list.php`, { params })
+      .subscribe((resp) => {
+        this.categoryList = resp.categories;
       });
   }
 }

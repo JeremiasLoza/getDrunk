@@ -16,7 +16,7 @@ import { SearchDrinkComponent } from './components/search-drink/search-drink.com
     DrinkCardComponent,
     CarrouselComponent,
     DrinkPageComponent,
-    SearchDrinkComponent
+    SearchDrinkComponent,
   ],
   imports: [
     CommonModule,

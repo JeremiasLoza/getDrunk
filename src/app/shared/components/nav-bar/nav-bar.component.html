@@ -43,8 +43,10 @@
 
     <!-- Right elements -->
     <div class="d-flex align-items-center">
+      <!-- Search bar -->
       <shared-search-bar></shared-search-bar>
-      <!-- Icon -->
+
+      <!-- Home -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a
@@ -55,21 +57,70 @@
           >
         </li>
 
+        <!-- Categories -->
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Projects</a>
+          <!--
+          <a
+            class="nav-link text-white dropdown-toggle"
+            data-bs-toggle="dropdown"
+            >Categories</a
+          >
+          <ul class="dropdown-menu">
+              
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDarkDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-dark"
+                  aria-labelledby="navbarDarkDropdownMenuLink"
+                >
+                  <div *ngFor="let category of categories">
+                    <li><a class="dropdown-item" href="#">{{category.strCategory}}</a></li>
+                  </div>
+                </ul>
+          </ul>
+          -->
+          <div class="collapse navbar-collapse text-white" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" >
+            
+                  
+                  <li><a class="dropdown-item text-white" href="#"> hola </a></li>
+                  <div *ngFor="let category of categories">
+                    <li><a class="dropdown-item text-white" href="#">{{category.strCategory}}</a></li>
+                  </div>
+                  </ul>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/" routerLinkActive="true" class="nav-link text-white"
+            >Random drink</a
+          >
         </li>
       </ul>
-      <a class="text-reset me-3" href="#">
-        <i class="fas fa-shopping-cart"></i>
-      </a>
 
       <!-- Favorites icon-->
       <div>
         <a
-          href="#"
           id="favoritesIcon"
           role="button"
-          style="color: white; padding-right: 20px"
+          style="color: white; padding-right: 20px; padding-left: 20px"
+          routerLink="/favorites"
+          routerLinkActive="true"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
