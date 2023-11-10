@@ -1,7 +1,10 @@
 <div class="bg-dark text-white">
-  <div class="row">
-    <div *ngFor="let drink of drinks" class="col-md-3 col-sm-6">
-      <get-drunk-drink-card [drink]="drink"></get-drunk-drink-card>
-    </div>
+  <div class="row p-4">
+      <div
+        *ngFor="let drink of drinks"
+        class="col-md-3 col-sm-6 align-items-center"
+      >
+        <get-drunk-drink-card [drink]="drink"></get-drunk-drink-card>
+      </div>
   </div>
 </div>
