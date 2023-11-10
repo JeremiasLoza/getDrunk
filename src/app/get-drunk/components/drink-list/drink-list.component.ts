@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { DrinkService } from '../../services/drink.service';
 import { Drink } from '../../interfaces/drink.interface';
@@ -12,9 +12,15 @@ export class DrinkListComponent {
   drinkList: Drink[] = [];
 
   constructor(private DrinkService: DrinkService) {
-    this.DrinkService.searchDrink('M');
   }
 
+  @Input()
+  public strDrink!: string;
+
+  ngOnChanges(): void {
+    this.DrinkService.searchDrink(this.strDrink);
+  }
+  
   get drinks() {
     return this.DrinkService.drinkList;
   }
