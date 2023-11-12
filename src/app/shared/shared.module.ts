@@ -5,6 +5,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { RouterModule } from '@angular/router';
+import { LazyImageComponent } from './components/lazy-image/lazy-image.component';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     SearchBarComponent,
     NavBarComponent,
     FooterComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    LazyImageComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { RouterModule } from '@angular/router';
   exports:[
     NavBarComponent,
     FooterComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    LazyImageComponent
   ]
 })
 export class SharedModule { }
