@@ -1,5 +1,5 @@
 export interface CategoryResponse {
-    categories: Category[];
+    drinks: Category[];
 }
  
 export interface Category {

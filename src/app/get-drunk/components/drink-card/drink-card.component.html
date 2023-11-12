@@ -1,12 +1,8 @@
-<a [routerLink]="['/drink', drink.idDrink]">
+<a [routerLink]="['/drink', drink.idDrink]" style="text-decoration: none;">
   <div class="card mb-2 text-center bg-black text-white">
-    <img
-      [src]="drink.strDrinkThumb"
-      class="card-img-top"
-      alt="drink.strDrink"
-    />
+    <shared-lazy-image [url]="drink.strDrinkThumb!" [alt]="drink.strDrink!"></shared-lazy-image>
     <div class="card-body" style="font-family: Agrandir">
-      <h5 class="card-title">{{ drink.strDrink }}</h5>
+      <h5 class="card-title">{{ drink.strDrink || 'Drink' }}</h5>
     </div>
   </div>
 </a>

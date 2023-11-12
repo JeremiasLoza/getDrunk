@@ -19,7 +19,7 @@ export class SearchDrinkComponent {
       this.searchText = params['name'];
     });
   }
-
+  
   get drinks(){
     return this.DrinkService.drinkList;
   }
