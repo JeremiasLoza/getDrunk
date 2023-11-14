@@ -6,7 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GetDrunkModule } from './get-drunk/get-drunk.module';
 import { SharedModule } from './shared/shared.module';
-
+import { ReactiveFormsModule} from '@angular/forms';
+import { FormsModule} from '@angular/forms';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,10 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     GetDrunkModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
