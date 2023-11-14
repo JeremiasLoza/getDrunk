@@ -9,14 +9,14 @@ import { Drink } from '../../interfaces/drink.interface';
   styleUrls: ['./drink-page.component.css']
 })
 export class DrinkPageComponent {
-  constructor ( private DrinkService: DrinkService, private route: ActivatedRoute ) {}
+  constructor(private DrinkService: DrinkService, private route: ActivatedRoute) { }
 
-  ngOnInit(){
+  ngOnInit() {
     let drinkId = this.route.snapshot.paramMap.get('id');
     this.DrinkService.searchDrinkById(drinkId!);
   }
 
-  get drinks(){
-    return this.DrinkService.drinkList;
+  get drinks() {
+    return this.DrinkService.drink;
   }
 }
