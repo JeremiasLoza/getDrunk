@@ -6,8 +6,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { RouterModule } from '@angular/router';
 import { LazyImageComponent } from './components/lazy-image/lazy-image.component';
-import { AuthModule } from '../auth/auth.module';
-
 
 
 @NgModule({
