@@ -1,2 +1,21 @@
-<h1>{{ drinks[0].strDrink }}</h1>
-<img [src]="drinks[0].strDrinkThumb" class="card-img-top" alt="drinks[0].strDrink" />
+<div
+  class="rounded bg-black text-center text-white custom-center-align m-4 p-4"
+>
+  <h1 class="mb-4">{{ drinks[0].strDrink }}</h1>
+  <div class="container text-center mt-2">
+    <div class="row align-items-start">
+      <div class="col">
+        <p>Image here</p>
+        <img
+          [src]="drinks[0].strDrinkThumb"
+          class="card-img-top"
+          alt="drinks[0].strDrink"
+        />
+      </div>
+      <div class="col">
+        <p>Ingredients</p>
+        <p>Recipe</p>
+      </div>
+    </div>
+  </div>
+</div>
