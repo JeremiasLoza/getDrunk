@@ -1,20 +1,36 @@
 <div
   class="rounded bg-black text-center text-white custom-center-align m-4 p-4"
 >
-  <h1 class="mb-4">{{ drinks[0].strDrink }}</h1>
+  <h2 class="mb-4">{{ drinks[0].strDrink }}</h2>
   <div class="container text-center mt-2">
     <div class="row align-items-start">
       <div class="col">
-        <p>Image here</p>
-        <img
-          [src]="drinks[0].strDrinkThumb"
-          class="card-img-top"
-          alt="drinks[0].strDrink"
-        />
+        <shared-lazy-image
+          [alt]="drinks[0].strDrink!"
+          [url]="drinks[0].strDrinkThumb!"
+        ></shared-lazy-image>
       </div>
       <div class="col">
-        <p>Ingredients</p>
-        <p>Recipe</p>
+        <h3>Ingredients</h3>
+        <p>{{ drinks[0].strIngredient1 }}</p>
+        <p>{{ drinks[0].strIngredient2 }}</p>
+        <p>{{ drinks[0].strIngredient3 }}</p>
+        <p>{{ drinks[0].strIngredient4 }}</p>
+        <p>{{ drinks[0].strIngredient5 }}</p>
+        <p>{{ drinks[0].strIngredient6 }}</p>
+        <p>{{ drinks[0].strIngredient7 }}</p>
+        <p>{{ drinks[0].strIngredient8 }}</p>
+        <p>{{ drinks[0].strIngredient9 }}</p>
+        <p>{{ drinks[0].strIngredient10 }}</p>
+        <p>{{ drinks[0].strIngredient11 }}</p>
+        <p>{{ drinks[0].strIngredient12 }}</p>
+        <p>{{ drinks[0].strIngredient13 }}</p>
+        <p>{{ drinks[0].strIngredient14 }}</p>
+        <p>{{ drinks[0].strIngredient15 }}</p>
+        <h3>Recipe</h3>
+        <p>{{ drinks[0].strInstructions }}</p>
+        <h3>Glass</h3>
+        <p>{{ drinks[0].strGlass }}</p>
       </div>
     </div>
   </div>

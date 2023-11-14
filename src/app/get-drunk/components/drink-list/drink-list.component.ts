@@ -17,11 +17,22 @@ export class DrinkListComponent {
   @Input()
   public strDrink!: string;
 
+  @Input()
+  public popular: boolean | null = false;
+
   ngOnChanges(): void {
-    this.DrinkService.searchDrink(this.strDrink);
+    if (this.popular !== true) {
+      this.DrinkService.searchDrink(this.strDrink);
+    } else {
+      this.DrinkService.getPopularDrinks();
+    }
   }
-  
+
   get drinks() {
-    return this.DrinkService.drinkList;
+    if (this.popular !== true) {
+      return this.DrinkService.drinkList;
+    } else {
+      return this.DrinkService.popularDrinks;
+    }
   }
 }

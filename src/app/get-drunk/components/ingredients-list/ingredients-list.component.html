@@ -1,1 +1,12 @@
-<p>ingredients-list works!</p>
+<div class="bg-dark text-white">
+  <div class="row p-4">
+    <div
+      *ngFor="let ingredient of ingredients"
+      class="col-md-3 col-sm-6 align-items-center"
+    >
+      <get-drunk-ingredient-card
+        [ingredient]="ingredient"
+      ></get-drunk-ingredient-card>
+    </div>
+  </div>
+</div>

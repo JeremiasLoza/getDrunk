@@ -1,0 +1,8 @@
+<a [routerLink]="['/ingredient', ingredient]" style="text-decoration: none;">
+    <div class="card mb-2 text-center bg-black text-white">
+      <shared-lazy-image [url]="ingredientImg" [alt]="ingredient!"></shared-lazy-image>
+      <div class="card-body" style="font-family: Agrandir">
+        <h5 class="card-title">{{ ingredient || 'Drink' }}</h5>
+      </div>
+    </div>
+</a>
