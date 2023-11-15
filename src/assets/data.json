@@ -1,11 +1,32 @@
 {
-    "user": [
+  "user": [
     {
-    "id": "1",
-    "name": "1",
-    "lastName": "1",
-    "email": "jere@123.com",
-    "password": "12345"
+      "id": "1",
+      "name": "1",
+      "lastName": "1",
+      "email": "jere@123.com",
+      "password": "12345"
+    },
+    {
+      "name": "sofia",
+      "lastName": "belber",
+      "email": "sofibelber@gmail.com",
+      "password": "678",
+      "id": "UcfjYB4"
+    },
+    {
+      "name": "boca",
+      "lastName": "jr",
+      "email": "boca@jr.com",
+      "password": "holaHola5",
+      "id": "jBlGsD1"
+    },
+    {
+      "name": "maria",
+      "lastName": "posse",
+      "email": "maria@a.com",
+      "password": "jolaHasa6",
+      "id": "OtYjsWZ"
     }
-    ]
+  ]
 }

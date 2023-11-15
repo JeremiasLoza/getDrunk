@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LoginRequest } from '../interfaces/loginRequest.interface';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, catchError, throwError, BehaviorSubject, tap } from 'rxjs';
+import { Observable, catchError, throwError, BehaviorSubject, tap, lastValueFrom } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 //import * as fs from 'file-system';
 
@@ -12,6 +12,7 @@ export class AuthLoginService {
 
   currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   currentUserData: BehaviorSubject<User> = new BehaviorSubject<User>({id:0,email:''});
+  private user: User | null | undefined = null;
 
   constructor(private http: HttpClient) { }
 
@@ -41,19 +42,46 @@ export class AuthLoginService {
     return this.currentUserLoginOn.asObservable();
   }
 
-  saveUserData(newUserData:any){
-    /*
-    const fs = require('fs');
-    const jsonFile = fs.readFileSync('././assets/data.json','utf-8');
+  baseURL = "http://localhost:3000"
 
-    const obj = JSON.parse(jsonFile);
-    obj.newObject = {id:'3',name:newUserData.name,lastName:newUserData.lastName,email:newUserData.email};
-
-    const newContJson = JSON.stringify(obj,null,2);
-
-    fs.writeFileSync('././assets/data.json', newContJson);
-
-    console.log('succesfull');
-*/
+  saveUserData(data: any): Observable<any> {
+    // Puedes realizar cualquier procesamiento adicional aquí antes de escribir el JSON
+    console.log(data);
+    const url = `${this.baseURL}/user`;
+    return this.http.post<boolean>(url,data);
   }
-}
+
+  get currentUser(): User | undefined {
+    if (!this.user) return undefined;
+    return structuredClone(this.user);
+  }
+  
+  public getToAuth(email: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseURL}/users?email=${email}`);
+    //&password=${password}
+  }
+
+  public async checkAuth(email: string): Promise<boolean> {
+  
+      let isLogin = false;
+  
+      try {
+  
+        let apiResponse = this.getToAuth(email);
+  
+        let userRespone = await lastValueFrom(apiResponse);
+  
+        this.user = userRespone[0];
+  
+        if (this.user) {
+          localStorage.setItem('token', this.user.id!.toString());
+          isLogin = true;
+        }
+      } catch (error) {
+        throw error;
+      }
+  
+      return isLogin;
+    }
+  }
+

@@ -1,0 +1,17 @@
+.favorite-btn{
+    position:absolute;
+    right: -18px;
+    top: 18;
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 15px;
+    padding-left: 10px;
+    color: white;
+
+}
+
+.fa-heart{
+    cursor:pointer;
+}

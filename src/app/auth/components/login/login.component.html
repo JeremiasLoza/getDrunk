@@ -38,7 +38,12 @@
 
     </div>
   </div>
-  <button type="submit" (click)="login()" class="btn btn-primary">
+  <button type="submit" (click)="login()" class="btn btn-dark">
     Log in
   </button>
+  <div class="mt-4">
+    <span>Dont have an account? </span><button type="submit" (click)="redirectToRegister()" class="btn btn-dark">
+      Sing up here
+    </button>
+  </div>
 </form>
