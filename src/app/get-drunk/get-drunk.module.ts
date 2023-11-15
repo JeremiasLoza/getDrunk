@@ -7,7 +7,6 @@ import { SharedModule } from '../shared/shared.module';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { DrinkListComponent } from './components/drink-list/drink-list.component';
 import { DrinkCardComponent } from './components/drink-card/drink-card.component';
-import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { DrinkPageComponent } from './components/drink-page/drink-page.component';
 import { SearchDrinkComponent } from './components/search-drink/search-drink.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -19,7 +18,6 @@ import { IngredientCardComponent } from './components/ingredient-card/ingredient
     HomePageComponent,
     DrinkListComponent,
     DrinkCardComponent,
-    CarrouselComponent,
     DrinkPageComponent,
     SearchDrinkComponent,
     NotFoundComponent,

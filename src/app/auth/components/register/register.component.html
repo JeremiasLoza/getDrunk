@@ -11,6 +11,15 @@
       id="name"
       aria-describedby="name"
     />
+    <div
+      *ngIf="name.invalid && (name.dirty || name.touched)"
+      class="text-danger"
+    >
+      <div *ngIf="name.errors?.['required']">Name is required.</div>
+      <div *ngIf="name.errors?.['pattern']">Name does not allow numbers or special characters.</div>
+
+    </div>
+
     <label for="lastName" class="form-label">Last name</label>
     <input
       formControlName="lastName"
@@ -19,6 +28,15 @@
       id="lastName"
       aria-describedby="lastName"
     />
+    <div
+      *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+      class="text-danger"
+    >
+      <div *ngIf="lastName.errors?.['required']">Last name is required.</div>
+      <div *ngIf="lastName.errors?.['pattern']">Last name does not allow numbers or special characters.</div>
+
+    </div>
+
     <label for="email" class="form-label">Email</label>
     <input
       formControlName="email"
@@ -27,6 +45,13 @@
       id="email"
       aria-describedby="email"
     />
+    <div
+    *ngIf="email.invalid && (email.dirty || email.touched)"
+    class="text-danger"
+  >
+    <div *ngIf="email.errors?.['required']">Email is required.</div>
+    <div *ngIf="email.errors?.['email']">Email must be in email format.</div>
+  </div>
     <label for="password" class="form-label">Password</label>
     <input
       formControlName="password"
@@ -35,7 +60,25 @@
       id="password"
       aria-describedby="password"
     />
-    <button type="submit" (click)="saveUser()" class="btn btn-primary mt-3">
+    <div
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+      class="text-danger"
+    >
+      <div *ngIf="password.errors?.['required']">Password is required.</div>
+      <div *ngIf="password.errors?.['pattern']">
+        <ul>
+          Password should contain:
+          <li>8 characters</li>
+          <li>At least one uppercase letter</li>
+          <li>At least one lowercase letter</li>
+          <li>At least one number letter</li>
+        </ul>
+      </div>
+        
+
+    </div>
+
+    <button type="submit" (click)="validateForm()" class="btn btn-dark mt-3">
         Sing up
       </button>
 </div>

@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit{
       this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
         next: (userData) => {
           console.log(userData);
+          this.loginService.checkAuth(userData.email)
         },
         error: (err) => {
           console.error(err);
@@ -53,6 +54,10 @@ export class LoginComponent implements OnInit{
     else{
       this.loginForm.markAllAsTouched();
     }
+  }
+
+  redirectToRegister(){
+    this.router.navigate(['/register']);
   }
 
 
