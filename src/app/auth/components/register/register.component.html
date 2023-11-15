@@ -1,1 +1,42 @@
-<p>register works!</p>
+<h1 class="text-white text-center pt-4">Register</h1>
+<form
+    [formGroup]="userForm" class="bg-black text-white align-items-center form custom-center-align text-center mb-4 rounded"
+>
+<div>
+    <label for="name" class="form-label">Name</label>
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control"
+      id="name"
+      aria-describedby="name"
+    />
+    <label for="lastName" class="form-label">Last name</label>
+    <input
+      formControlName="lastName"
+      type="text"
+      class="form-control"
+      id="lastName"
+      aria-describedby="lastName"
+    />
+    <label for="email" class="form-label">Email</label>
+    <input
+      formControlName="email"
+      type="email"
+      class="form-control"
+      id="email"
+      aria-describedby="email"
+    />
+    <label for="password" class="form-label">Password</label>
+    <input
+      formControlName="password"
+      type="password"
+      class="form-control"
+      id="password"
+      aria-describedby="password"
+    />
+    <button type="submit" (click)="saveUser()" class="btn btn-primary mt-3">
+        Sing up
+      </button>
+</div>
+</form>

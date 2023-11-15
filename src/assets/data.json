@@ -1,7 +1,11 @@
 {
-    "message": "Authentication ok",
+    "user": [
+    {
     "id": "1",
-    "name": "Sofia",
-    "lastName": "Belber",
-    "email":"sofibelber@gmail.com"
+    "name": "1",
+    "lastName": "1",
+    "email": "jere@123.com",
+    "password": "12345"
+    }
+    ]
 }
