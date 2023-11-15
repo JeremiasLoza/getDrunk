@@ -10,6 +10,7 @@ import { FavoritesComponent } from './auth/components/favorites/favorites.compon
 import { NotFoundComponent } from './get-drunk/components/not-found/not-found.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { DashboardComponent } from './auth/components/dashboard/dashboard.component';
+import { RegisterComponent } from './auth/components/register/register.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'search/:name', component: SearchDrinkComponent },
   { path: 'category/:name', component: SearchDrinkComponent }, // TODO: Armar el componente con la busqueda
   { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }

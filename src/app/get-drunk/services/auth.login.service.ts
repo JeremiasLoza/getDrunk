@@ -3,6 +3,7 @@ import { LoginRequest } from '../interfaces/loginRequest.interface';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, throwError, BehaviorSubject, tap } from 'rxjs';
 import { User } from '../interfaces/user.interface';
+//import * as fs from 'file-system';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,21 @@ export class AuthLoginService {
   }
   get userLoginOn(): Observable<Boolean>{
     return this.currentUserLoginOn.asObservable();
+  }
+
+  saveUserData(newUserData:any){
+    /*
+    const fs = require('fs');
+    const jsonFile = fs.readFileSync('././assets/data.json','utf-8');
+
+    const obj = JSON.parse(jsonFile);
+    obj.newObject = {id:'3',name:newUserData.name,lastName:newUserData.lastName,email:newUserData.email};
+
+    const newContJson = JSON.stringify(obj,null,2);
+
+    fs.writeFileSync('././assets/data.json', newContJson);
+
+    console.log('succesfull');
+*/
   }
 }
