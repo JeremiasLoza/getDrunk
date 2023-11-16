@@ -1,33 +1,36 @@
-import { Component,OnDestroy,OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/get-drunk/interfaces/user.interface';
 import { AuthLoginService } from 'src/app/get-drunk/services/auth.login.service';
 
 @Component({
   selector: 'auth-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent implements OnInit, OnDestroy{
-  userLoginOn:boolean=false;
-  userData?:User;
-  constructor(private loginService: AuthLoginService){}
+export class DashboardComponent implements OnInit, OnDestroy {
+  public user!: User;
 
-  ngOnDestroy(): void { 
-    this.loginService.currentUserData.unsubscribe();
-    this.loginService.currentUserLoginOn.unsubscribe();
+  constructor(private loginService: AuthLoginService, private router: Router) {}
+
+  ngOnDestroy(): void {
   }
 
   ngOnInit(): void {
-    this.loginService.currentUserLoginOn.subscribe({
-      next:(userLoginOn) => {
-        this.userLoginOn=this.userLoginOn;
-      }
-    });
+    const value = localStorage.getItem('token');
+    
+    this.loginService.searchById(value).subscribe(
+    (user: User[]) => {
+      this.user = user[0];
+    },
+    (error: any) => {
+      console.error('Error when searching for users by ID:', error);
+    }
+  );
+  }
 
-    this.loginService.currentUserData.subscribe({
-      next:(userData) => {
-        this.userData=userData;
-      }
-    })
+  logout(){
+    this.loginService.logout();
+    this.router.navigate(['/home']);
   }
 }

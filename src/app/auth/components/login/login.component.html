@@ -1,7 +1,9 @@
-
 <h1 class="text-white text-center pt-4">Log in</h1>
-<form [formGroup]="loginForm" class="bg-black text-white align-items-center form custom-center-align text-center mb-4 rounded">
-  <p class="text-red">{{loginError}}</p>
+<form
+  [formGroup]="loginForm"
+  class="bg-black text-white align-items-center form custom-center-align text-center mb-4 rounded"
+>
+  <!-- <p class="text-danger" *ngIf="">Incorrect login and/or password!</p> -->
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email</label>
     <input
@@ -17,9 +19,6 @@
       class="text-danger"
     >
       <div *ngIf="email.errors?.['required']">Email is required.</div>
-      <div *ngIf="email.errors?.['minlength']">
-        Email must be in email format.
-      </div>
     </div>
   </div>
   <div class="mb-3">
@@ -35,14 +34,12 @@
       class="text-danger"
     >
       <div *ngIf="password.errors?.['required']">Password is required.</div>
-
     </div>
   </div>
-  <button type="submit" (click)="login()" class="btn btn-dark">
-    Log in
-  </button>
+  <button type="submit" (click)="login()" class="btn btn-dark">Log in</button>
   <div class="mt-4">
-    <span>Dont have an account? </span><button type="submit" (click)="redirectToRegister()" class="btn btn-dark">
+    <span>Dont have an account? </span
+    ><button type="submit" (click)="redirectToRegister()" class="btn btn-dark">
       Sing up here
     </button>
   </div>

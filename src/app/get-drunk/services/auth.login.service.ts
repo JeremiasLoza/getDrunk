@@ -1,87 +1,119 @@
 import { Injectable } from '@angular/core';
 import { LoginRequest } from '../interfaces/loginRequest.interface';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, catchError, throwError, BehaviorSubject, tap, lastValueFrom } from 'rxjs';
+import {
+  Observable,
+  catchError,
+  throwError,
+  BehaviorSubject,
+  tap,
+  lastValueFrom,
+} from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from '../interfaces/user.interface';
 //import * as fs from 'file-system';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthLoginService {
-
-  currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  currentUserData: BehaviorSubject<User> = new BehaviorSubject<User>({id:0,email:''});
+  currentUserLoginOn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
+  currentUserData: BehaviorSubject<User> = new BehaviorSubject<User>({
+    id: 0,
+    email: '',
+    name: '',
+    lastName: '',
+    password: '',
+  });
   private user: User | null | undefined = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  login(credentials:LoginRequest):Observable<User>{
+  login(credentials: LoginRequest): Observable<User> {
     return this.http.get<User>('././assets/data.json').pipe(
       tap((userData: User) => {
         this.currentUserData.next(userData);
         this.currentUserLoginOn.next(true); //user logged
       }),
       catchError(this.handleError)
-    )
+    );
   }
 
-  private handleError(error:HttpErrorResponse){
-    if(error.status===0){
-      console.error('An error occured ' + error.error );
-    }else{
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      console.error('An error occured ' + error.error);
+    } else {
       console.log('Backend returned state code ', error.status, error.error);
     }
-    return throwError(() => new Error('Something went wronge. Please try again'));
+    return throwError(
+      () => new Error('Something went wronge. Please try again')
+    );
   }
 
-  get userData(): Observable<User>{
+  get userData(): Observable<User> {
     return this.currentUserData.asObservable();
   }
-  get userLoginOn(): Observable<Boolean>{
+  get userLoginOn(): Observable<Boolean> {
     return this.currentUserLoginOn.asObservable();
   }
 
-  baseURL = "http://localhost:3000"
+  baseURL = 'http://localhost:3000';
 
   saveUserData(data: any): Observable<any> {
     // Puedes realizar cualquier procesamiento adicional aquí antes de escribir el JSON
     console.log(data);
     const url = `${this.baseURL}/user`;
-    return this.http.post<boolean>(url,data);
+    return this.http.post<boolean>(url, data);
   }
 
   get currentUser(): User | undefined {
     if (!this.user) return undefined;
     return structuredClone(this.user);
   }
-  
-  public getToAuth(email: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseURL}/users?email=${email}`);
-    //&password=${password}
+
+  public getToAuth(email: string, password: string): Observable<User[]> {
+    return this.http.get<User[]>(
+      `${this.baseURL}/user?email=${email}&password=${password}`
+    );
   }
 
-  public async checkAuth(email: string): Promise<boolean> {
-  
-      let isLogin = false;
-  
-      try {
-  
-        let apiResponse = this.getToAuth(email);
-  
-        let userRespone = await lastValueFrom(apiResponse);
-  
-        this.user = userRespone[0];
-  
-        if (this.user) {
-          localStorage.setItem('token', this.user.id!.toString());
-          isLogin = true;
-        }
-      } catch (error) {
-        throw error;
+  public async checkAuth(email: string, password: string): Promise<boolean> {
+    let isLogin = false;
+
+    try {
+      let apiResponse = this.getToAuth(email, password);
+
+      let userRespone = await lastValueFrom(apiResponse);
+
+      this.user = userRespone[0];
+
+      if (this.user) {
+        localStorage.setItem('token', this.user.id!.toString());
+        isLogin = true;
       }
-  
-      return isLogin;
+    } catch (error) {
+      throw error;
+    }
+
+    return isLogin;
+  }
+
+  public logout() {
+    this.user = undefined;
+    localStorage.clear();
+  }
+
+  public searchById(id: string | null): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseURL}/user?id=${id}`);
+  }
+
+  public hasLoged(): boolean {
+    if(localStorage.getItem('token')){
+      return true;
+    } else {
+      return false;
     }
   }
-
+}
