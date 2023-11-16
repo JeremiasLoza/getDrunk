@@ -1,64 +1,57 @@
-import { Component,OnInit } from '@angular/core';
-import { FormBuilder, Validators} from '@angular/forms';
-import { Router } from '@angular/router'
-import { LoginRequest } from 'src/app/get-drunk/interfaces/loginRequest.interface';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthLoginService } from 'src/app/get-drunk/services/auth.login.service';
-
 
 @Component({
   selector: 'auth-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit{
-  loginError:string="";
-  loginForm=this.formBuilder.group({
-    email:['', [Validators.required,Validators.email]],
-    password:['',[Validators.required]],
-  })
+export class LoginComponent implements OnInit {
+  loginError: string = '';
+  loginForm = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+  });
+  public isLogged: Promise<boolean>;
 
-  constructor(private formBuilder:FormBuilder, private router:Router, private loginService:AuthLoginService){}
-
-  ngOnInit(){
-
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private loginService: AuthLoginService
+  ) {
+    this.isLogged = new Promise((resolve) => {
+      resolve(false);
+    });
   }
 
-  get email(){
+  ngOnInit() {}
+
+  get email() {
     return this.loginForm.controls.email;
   }
 
-  get password(){
+  get password() {
     return this.loginForm.controls.password;
   }
 
-
-  login(){
-    if(this.loginForm.valid){
-      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
-        next: (userData) => {
-          console.log(userData);
-          this.loginService.checkAuth(userData.email)
-        },
-        error: (err) => {
-          console.error(err);
-          this.loginError=err;
-        },
-        complete:() => {
-          console.info('Completed login');
-          this.router.navigateByUrl('/dashboard');
-          this.loginForm.reset();
+  login() {
+    if (this.loginForm.valid) {
+      this.isLogged = this.loginService.checkAuth(this.loginForm.value.email!, this.loginForm.value.password!);
+      this.isLogged.then((loggedIn) => {
+        if (loggedIn) {
+          this.router.navigate(['/home']);
         }
+      }).catch((error) => {
+        console.log(error);
       });
-      
-    }
-    else{
+    } else {
       this.loginForm.markAllAsTouched();
     }
   }
 
-  redirectToRegister(){
+  redirectToRegister() {
     this.router.navigate(['/register']);
   }
-
-
 }
