@@ -52,6 +52,8 @@
     <div *ngIf="email.errors?.['required']">Email is required.</div>
     <div *ngIf="email.errors?.['email']">Email must be in email format.</div>
   </div>
+
+
     <label for="password" class="form-label">Password</label>
     <input
       formControlName="password"
@@ -76,6 +78,15 @@
       </div>
         
 
+    </div>
+    
+    <div>
+      <label for="confirmPassword">Confirm password</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword" class="text-danger" class="form-control">
+      <div *ngIf="confirmPassword?.invalid && (confirmPassword.touched || confirmPassword.dirty)" class="text-danger">
+        <div *ngIf="confirmPassword.errors?.['required'] || confirmPassword.value === ''">Confirm password is required</div>
+        <div *ngIf="userForm.hasError('passwordMismatch') && confirmPassword.value != ''">Passwords dont match</div>
+      </div>
     </div>
 
     <button type="submit" (click)="validateForm()" class="btn btn-dark mt-3">

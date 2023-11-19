@@ -13,6 +13,20 @@
       "email": "jereloza@gmail.com",
       "password": "123456Aa",
       "id": "bAl_DTd"
+    },
+    {
+      "name": "maria",
+      "lastName": "posse",
+      "email": "maria@a.com",
+      "password": "mariaaaaA12",
+      "id": "6XZoDXh"
+    },
+    {
+      "name": "Juan",
+      "lastName": "Azar",
+      "email": "j@a.com",
+      "password": "Juanazar4",
+      "id": "67267jo"
     }
   ]
 }

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Category } from 'src/app/get-drunk/interfaces/category.interface';
 import { User } from 'src/app/get-drunk/interfaces/user.interface';
 import { AuthLoginService } from 'src/app/get-drunk/services/auth.login.service';
@@ -12,6 +13,7 @@ import { DrinkService } from 'src/app/get-drunk/services/drink.service';
 })
 export class NavBarComponent implements OnInit, OnDestroy {
   categoryList: Category[] = [];
+  //public isLogged: Observable<boolean> = of(false;
   public isLogged: boolean = false;
 
   constructor(
