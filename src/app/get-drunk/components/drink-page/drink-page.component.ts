@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, Route } from '@angular/router';
 import { DrinkService } from '../../services/drink.service';
 import { Drink } from '../../interfaces/drink.interface';
 
@@ -9,11 +9,19 @@ import { Drink } from '../../interfaces/drink.interface';
   styleUrls: ['./drink-page.component.css']
 })
 export class DrinkPageComponent {
-  constructor(private DrinkService: DrinkService, private route: ActivatedRoute) { }
+  constructor(private DrinkService: DrinkService, private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     let drinkId = this.route.snapshot.paramMap.get('id');
+    if (drinkId && !isNaN(Number(drinkId))) {
     this.DrinkService.searchDrinkById(drinkId!);
+    }
+    else
+    {
+      this.router.navigateByUrl('/not-found');
+    }
+
   }
 
   get drinks() {
