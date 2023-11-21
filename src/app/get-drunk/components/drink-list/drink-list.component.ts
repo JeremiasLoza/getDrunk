@@ -14,6 +14,7 @@ export class DrinkListComponent {
   drinkList: Drink[] = [];
   public page!: number;
 
+
   constructor(private DrinkService: DrinkService) {
   }
 
