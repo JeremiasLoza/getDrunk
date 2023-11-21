@@ -22,10 +22,11 @@
     <!-- Collapsible wrapper -->
 
     <!-- Right elements -->
-    <div class="d-flex align-items-center">
-      <!-- Search bar -->
-      <shared-search-bar></shared-search-bar>
-
+    <div class="d-flex align-items-center" >
+       <!-- Search bar -->
+    <div *ngIf="isLogged" >
+       <shared-search-bar></shared-search-bar>
+      </div>
       <!-- Home -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -38,7 +39,7 @@
         </li>
 
         <!-- Categories -->
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLogged">
           <div class="navbar-collapse text-white">
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
@@ -104,7 +105,7 @@
 
       <!-- User -->
       <div>
-        <a 
+        <a
           [routerLink]="isLogged ? '/dashboard' : '/login'"
           routerLinkActive="true"
           id="userIcon"

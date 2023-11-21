@@ -1,11 +1,24 @@
-<div class="col-12 pt-2">
-  <h3 class="text-white text-center">Popular drinks</h3>
-  <get-drunk-drink-list
-    [strDrink]="'Margarita'"
-    [popular]="true"
-  ></get-drunk-drink-list>
+<div *ngIf="isLoggedIn">
+  <div class="col-12 pt-2">
+    <h3 class="text-white text-center">Popular drinks</h3>
+    <get-drunk-drink-list
+      [strDrink]="'Margarita'"
+      [popular]="true"
+    ></get-drunk-drink-list>
 
-  <hr class="text-white" />
-  <h3 class="text-white text-center">Popular ingredients</h3>
-  <get-drunk-ingredients-list></get-drunk-ingredients-list>
+    <hr class="text-white" />
+    <h3 class="text-white text-center">Popular ingredients</h3>
+    <get-drunk-ingredients-list></get-drunk-ingredients-list>
+  </div>
 </div>
+<div *ngIf="!isLoggedIn">
+  <div class="col-12 pt-2">
+    <h3 class="text-white text-center">Popular drinks</h3>
+    <get-drunk-drink-list
+      [strDrink]="'Margarita'"
+      [popular]="true"
+    ></get-drunk-drink-list>
+  </div>
+
+</div>
+
