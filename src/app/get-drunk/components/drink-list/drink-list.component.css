@@ -1,0 +1,22 @@
+/* Estilos para los botones de paginación */
+.pagination-controls ::ng-deep .ngx-pagination li a {
+  color: whitesmoke;
+  background-color: black;
+  border: 1px solid black;
+  margin: 2px;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* Estilos para las flechas */
+.pagination-controls ::ng-deep .ngx-pagination .prev::after,
+.pagination-controls ::ng-deep .ngx-pagination .next::after {
+  content: '❮'; /* Unicode para una flecha izquierda */
+  color: white;
+  background-color: black;
+  font-size: 16px;
+  margin: 0 5px;
+}
+.pagination-controls ::ng-deep .ngx-pagination .next::after {
+  content: '❯'; /* Unicode para una flecha derecha */
+}

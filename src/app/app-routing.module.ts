@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 import { AboutPageComponent } from './shared/components/about-page/about-page.component';
 import { HomePageComponent } from './get-drunk/components/home-page/home-page.component';
@@ -27,7 +29,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    NgxPaginationModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
