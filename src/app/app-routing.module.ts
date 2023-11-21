@@ -26,7 +26,6 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },
-  { path: 'drink/**', component: NotFoundComponent }
 ];
 
 @NgModule({
