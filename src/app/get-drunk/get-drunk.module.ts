@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+
 import { SharedModule } from '../shared/shared.module';
+
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { DrinkListComponent } from './components/drink-list/drink-list.component';
@@ -23,11 +26,13 @@ import { IngredientCardComponent } from './components/ingredient-card/ingredient
     NotFoundComponent,
     IngredientsListComponent,
     IngredientCardComponent,
+
   ],
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ],
   exports: [HomePageComponent],
 })

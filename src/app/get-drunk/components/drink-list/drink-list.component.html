@@ -1,10 +1,22 @@
 <div class="bg-dark text-white">
   <div class="row p-4">
-      <div
-        *ngFor="let drink of drinks"
-        class="col-md-3 col-sm-6 align-items-center"
-      >
+      <div *ngFor="let drink of drinks | paginate: { itemsPerPage: 8, currentPage: page}"
+       class="col-md-3 col-sm-6 align-items-center">
         <get-drunk-drink-card [drink]="drink"></get-drunk-drink-card>
-      </div>
+       </div>
+
   </div>
+</div>
+<div class="bg-dark text-white my-pagination">
+  <pagination-controls
+
+  (pageChange)="page = $event"
+  [autoHide]= false
+   previousLabel="Previous"
+   nextLabel="Next"
+   screenReaderPaginationLabel="Pagination"
+   screenReaderPageLabel="page"
+   ></pagination-controls>
+
+
 </div>

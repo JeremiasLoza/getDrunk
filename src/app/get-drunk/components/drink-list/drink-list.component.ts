@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
 
+
 import { DrinkService } from '../../services/drink.service';
 import { Drink } from '../../interfaces/drink.interface';
+
 
 @Component({
   selector: 'get-drunk-drink-list',
@@ -10,6 +12,7 @@ import { Drink } from '../../interfaces/drink.interface';
 })
 export class DrinkListComponent {
   drinkList: Drink[] = [];
+  public page!: number;
 
   constructor(private DrinkService: DrinkService) {
   }
