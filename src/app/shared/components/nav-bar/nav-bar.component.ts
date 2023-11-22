@@ -39,4 +39,17 @@ export class NavBarComponent implements OnInit, OnDestroy {
       this.isLogged = loggedIn;
     });
   }
+
+  randomDrink:any;
+  
+  getRandomDrink() {
+    this.DrinkService.getRandomDrink()
+      .subscribe((data: any) => {
+        this.randomDrink = data.drinks[0];
+        this.router.navigate(['/drink', this.randomDrink.idDrink]);
+      }, (error) => {
+        console.error('Hubo un error al obtener el trago aleatorio:', error);
+      });
+  }
+
 }

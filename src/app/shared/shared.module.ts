@@ -6,6 +6,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { RouterModule } from '@angular/router';
 import { LazyImageComponent } from './components/lazy-image/lazy-image.component';
+import { DrinkCardComponent } from '../get-drunk/components/drink-card/drink-card.component';
+import { GetDrunkModule } from '../get-drunk/get-drunk.module';
 
 
 @NgModule({
@@ -18,7 +20,7 @@ import { LazyImageComponent } from './components/lazy-image/lazy-image.component
   ],
   imports: [
     CommonModule,
-    RouterModule,
+    RouterModule
   ],
   exports:[
     NavBarComponent,
