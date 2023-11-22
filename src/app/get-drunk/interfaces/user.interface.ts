@@ -1,19 +1,17 @@
-// export interface User{
-//     id: number;
-//     name?: string;
-//     lastName?: string;
-//     email: string;
-//     message? :string;
-// }
-
 export interface Users {
-    user: User[];
+  user: User[];
+  favorites: Favorite[];
 }
 
 export interface User {
-    id:       number;
-    name:     string;
-    lastName: string;
-    email:    string;
-    password: string;
+  id: number;
+  name: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+
+export interface Favorite {
+  userId: string;
+  favorites: string[];
 }

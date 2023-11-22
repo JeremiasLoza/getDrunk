@@ -28,5 +28,20 @@
       "password": "Juanazar4",
       "id": "67267jo"
     }
+  ],
+
+  "favorites": [
+    {
+      "userId": "67267jo",
+      "favorites": [
+        "11007", "11118"
+      ]
+    },
+    {
+      "userId": "bAl_DTd",
+      "favorites": [
+        "11007", "11118"
+      ]
+    }
   ]
 }

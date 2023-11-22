@@ -34,6 +34,9 @@ export class NavBarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.isLogged = this.loginService.hasLoged();
+    this.loginService.isLoggedIn().subscribe((loggedIn) => {
+      console.log(loggedIn);
+      this.isLogged = loggedIn;
+    });
   }
 }
