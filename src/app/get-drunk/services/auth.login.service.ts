@@ -35,10 +35,15 @@ export class AuthLoginService {
     return this.http.get<User>('././assets/data.json').pipe(
       tap((userData: User) => {
         this.currentUserData.next(userData);
-        this.currentUserLoginOn.next(true); //user logged
       }),
       catchError(this.handleError)
     );
+  }
+
+  public logout() {
+    this.user = undefined;
+    localStorage.clear();
+    this.currentUserLoginOn.next(false);
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -63,7 +68,7 @@ export class AuthLoginService {
 
   saveUserData(data: any): Observable<any> {
     // Puedes realizar cualquier procesamiento adicional aquí antes de escribir el JSON
-    console.log(data);
+    //console.log(data);
     const url = `${this.baseURL}/user`;
     return this.http.post<boolean>(url, data);
   }
@@ -92,6 +97,7 @@ export class AuthLoginService {
       if (this.user) {
         localStorage.setItem('token', this.user.id!.toString());
         isLogin = true;
+        this.currentUserLoginOn.next(true);
       }
     } catch (error) {
       throw error;
@@ -100,20 +106,19 @@ export class AuthLoginService {
     return isLogin;
   }
 
-  public logout() {
-    this.user = undefined;
-    localStorage.clear();
-  }
-
   public searchById(id: string | null): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseURL}/user?id=${id}`);
   }
 
   public hasLoged(): boolean {
-    if(localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
       return true;
     } else {
       return false;
     }
+  }
+
+  public isLoggedIn(): Observable<boolean> {
+    return this.currentUserLoginOn.asObservable();
   }
 }
