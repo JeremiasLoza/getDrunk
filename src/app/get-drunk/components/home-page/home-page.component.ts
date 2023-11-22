@@ -12,9 +12,8 @@ export class HomePageComponent {
   constructor(private authService: AuthLoginService) {}
 
   ngOnInit() {
-    this.authService.currentUserLoginOn.subscribe((loggedIn) => {
-      this.isLoggedIn = loggedIn;
-    });
+    this.isLoggedIn= this.authService.hasLoged();
+
   }
 
 }
