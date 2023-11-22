@@ -1,4 +1,4 @@
-<div *ngIf="isLoggedIn">
+<div *ngIf="isLoggedIn; else isNotLoggedIn" >
   <div class="col-12 pt-2">
     <h3 class="text-white text-center">Popular drinks</h3>
     <get-drunk-drink-list
@@ -8,10 +8,15 @@
 
     <hr class="text-white" />
     <h3 class="text-white text-center">Popular ingredients</h3>
+
     <get-drunk-ingredients-list></get-drunk-ingredients-list>
+
   </div>
 </div>
-<div *ngIf="!isLoggedIn">
+
+
+
+<ng-template #isNotLoggedIn>
   <div class="col-12 pt-2">
     <h3 class="text-white text-center">Popular drinks</h3>
     <get-drunk-drink-list
@@ -20,5 +25,7 @@
     ></get-drunk-drink-list>
   </div>
 
-</div>
+</ng-template>
+
+
 
