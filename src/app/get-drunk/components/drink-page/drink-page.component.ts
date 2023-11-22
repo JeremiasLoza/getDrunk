@@ -13,6 +13,17 @@ export class DrinkPageComponent {
     private router: Router) { }
 
   ngOnInit() {
+
+    this.route.paramMap.subscribe(params => {
+      let drinkId = params.get('id');
+      if (drinkId && !isNaN(Number(drinkId))) {
+        this.DrinkService.searchDrinkById(drinkId);
+      } else {
+        this.router.navigateByUrl('/not-found');
+      }
+    });
+
+    /*
     let drinkId = this.route.snapshot.paramMap.get('id');
     if (drinkId && !isNaN(Number(drinkId))) {
     this.DrinkService.searchDrinkById(drinkId!);
@@ -21,7 +32,7 @@ export class DrinkPageComponent {
     {
       this.router.navigateByUrl('/not-found');
     }
-
+*/
   }
 
   get drinks() {

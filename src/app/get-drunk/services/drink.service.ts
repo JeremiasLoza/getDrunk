@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Drink, SearchResponse } from '../interfaces/drink.interface';
 import { Category, CategoryResponse } from '../interfaces/category.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -57,5 +58,9 @@ export class DrinkService {
       .subscribe((resp) => {
         this.popularDrinks = resp.drinks;
       });
+  }
+
+  getRandomDrink(): Observable<any> {
+    return this.http.get('https://www.thecocktaildb.com/api/json/v1/1/random.php');
   }
 }
