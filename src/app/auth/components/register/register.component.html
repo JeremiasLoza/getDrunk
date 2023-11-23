@@ -89,7 +89,7 @@
       </div>
     </div>
 
-    <button type="submit" (click)="validateForm()" class="btn btn-dark mt-3">
+    <button type="submit" (click)="validateForm()" class="btn btn-dark mt-3" [disabled]="!userForm.valid">
         Sing up
       </button>
 </div>
