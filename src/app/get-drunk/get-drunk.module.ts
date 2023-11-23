@@ -34,6 +34,6 @@ import { IngredientCardComponent } from './components/ingredient-card/ingredient
     SharedModule,
     NgxPaginationModule
   ],
-  exports: [HomePageComponent],
+  exports: [HomePageComponent,DrinkCardComponent],
 })
 export class GetDrunkModule { }

@@ -1,10 +1,30 @@
-<!-- <a [routerLink]="['/drink', drink.idDrink]" style="text-decoration: none;"> -->
-  <div class="card mb-2 text-center bg-black text-white">
-    <!--<button type="button" data-id="${drink.idDrink}" class="favorite-btn btn btn-outline-white">+</button>-->
-    <shared-lazy-image [url]="drink.strDrinkThumb!" [alt]="drink.strDrink!"></shared-lazy-image>
-    <div class="card-body" style="font-family: Agrandir">
-      <h5 class="card-title">{{ drink.strDrink || 'Drink' }}</h5>
-      <i *ngIf="isLogged" (click)="addFavorite(drink.idDrink)" class="far fa-heart float-right"></i>
+<div class="card mb-2 text-center bg-black text-white">
+  <a [routerLink]="['/drink', drink.idDrink]" style="text-decoration: none">
+    <shared-lazy-image
+      [url]="drink.strDrinkThumb!"
+      [alt]="drink.strDrink!"
+    ></shared-lazy-image>
+  </a>
+  <div class="card-body" style="font-family: Agrandir">
+    <a [routerLink]="['/drink', drink.idDrink]" style="text-decoration: none">
+      <h5 class="card-title text-white">{{ drink.strDrink || "Drink" }}</h5>
+    </a>
+    <div *ngIf="isLogged">
+      <!-- <i
+        (click)="toggleFavorite(drink.idDrink)"
+        class="far fa-heart float-right"
+      ></i> -->
+      <i
+        (click)="toggleFavorite(drink.idDrink)"
+        class="fa-solid fa-heart"
+        *ngIf="isFavorite; else notFavorite"
+      ></i>
+      <ng-template #notFavorite>
+        <i
+          (click)="toggleFavorite(drink.idDrink)"
+          class="fa-regular fa-heart"
+        ></i>
+      </ng-template>
     </div>
   </div>
-<!-- </a> -->
+</div>
