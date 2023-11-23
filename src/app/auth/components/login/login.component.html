@@ -5,6 +5,7 @@
 >
   <!-- <p class="text-danger" *ngIf="">Incorrect login and/or password!</p> -->
   <div class="mb-3">
+    <p *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</p>
     <label for="exampleInputEmail1" class="form-label">Email</label>
     <input
       formControlName="email"

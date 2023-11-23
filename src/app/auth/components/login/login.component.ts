@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required]],
   });
   public isLogged: Promise<boolean>;
+  public errorMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,6 +43,9 @@ export class LoginComponent implements OnInit {
       this.isLogged.then((loggedIn) => {
         if (loggedIn) {
           this.router.navigate(['/home']);
+        }
+        else{
+          this.errorMessage = 'Incorrect email and/or password.';
         }
       }).catch((error) => {
         console.log(error);
