@@ -7,6 +7,7 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { FormsModule} from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { GetDrunkModule } from '../get-drunk/get-drunk.module';
 
 
 
@@ -22,6 +23,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    GetDrunkModule
   ]
 })
 export class AuthModule { }

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Drink, SearchResponse } from '../interfaces/drink.interface';
 import { Category, CategoryResponse } from '../interfaces/category.interface';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -40,6 +40,21 @@ export class DrinkService {
       .subscribe((resp) => {
         this.drink = resp.drinks;
       });
+  }
+
+  searchDrinkByIdObs(id: string): Observable<Drink> {
+    if (id.length === 0) {
+      // Puedes manejar esto según tus requisitos, por ejemplo, lanzar un error o devolver un observable vacío.
+      return throwError('ID de bebida vacío');
+    }
+  
+    const params = new HttpParams().set('i', id);
+  
+    return this.http
+      .get<SearchResponse>(`${this.serviceUrl}lookup.php`, { params })
+      .pipe(
+        map(resp => resp.drinks[0]), // Tomar la primera bebida del array, ya que parece que solo estás interesado en una
+      );
   }
 
   getCategories(): void {

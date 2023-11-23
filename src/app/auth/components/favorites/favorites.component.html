@@ -1,7 +1,13 @@
-<div
-  class="rounded bg-black text-center text-white custom-center-align m-4 p-4"
->
-  <div
-    class="col-md-6 col-sm-6 align-items-center"
-  ></div>
+<div class="bg-dark text-white">
+  <div class="row p-4">
+      <div *ngFor="let drink of drinks"
+       class="col-md-3 col-sm-6 align-items-center">
+        <get-drunk-drink-card [drink]="drink"></get-drunk-drink-card>
+       </div>
+
+  </div>
+</div>
+<div class="bg-dark text-white my-pagination col-12 d-flex justify-content-center">
+
+
 </div>
