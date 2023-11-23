@@ -27,6 +27,14 @@
       "email": "j@a.com",
       "password": "Juanazar4",
       "id": "67267jo"
+    },
+    {
+      "name": "Andres",
+      "lastName": "Farenga",
+      "email": "andyfarenga@andy.andy",
+      "password": "Andy1234",
+      "confirmPassword": "Andy1234",
+      "id": "UhlMm6T"
     }
   ],
   "favorites": [
@@ -41,9 +49,15 @@
     {
       "id": "bAl_DTd",
       "favorites": [
-        "11002",
-        "11003",
         "11000",
+        "11005",
+        "11002",
+        "11007"
+      ]
+    },
+    {
+      "id": "UhlMm6T",
+      "favorites": [
         "11001"
       ]
     }
