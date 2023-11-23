@@ -13,6 +13,7 @@ import { NotFoundComponent } from './get-drunk/components/not-found/not-found.co
 import { LoginComponent } from './auth/components/login/login.component';
 import { DashboardComponent } from './auth/components/dashboard/dashboard.component';
 import { RegisterComponent } from './auth/components/register/register.component';
+import { CategoryComponent } from './get-drunk/components/category/category.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'drink/:id', component: DrinkPageComponent },
   { path: 'favorites', component: FavoritesComponent },
   { path: 'search/:name', component: SearchDrinkComponent },
-  { path: 'category/:name', component: SearchDrinkComponent }, // TODO: Armar el componente con la busqueda
+  { path: 'category/:name', component: CategoryComponent }, // TODO: Armar el componente con la busqueda
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'dashboard', component: DashboardComponent},

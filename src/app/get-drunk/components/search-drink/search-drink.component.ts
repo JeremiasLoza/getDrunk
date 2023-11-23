@@ -8,19 +8,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./search-drink.component.css']
 })
 export class SearchDrinkComponent {
-  constructor ( private DrinkService: DrinkService, private route: ActivatedRoute ) {}
+  constructor(private DrinkService: DrinkService, private route: ActivatedRoute) { }
 
   public searchText: string = '';
 
   ngOnInit(): void {
-    // Suscribirse a cambios en los parámetros de la ruta
     this.route.params.subscribe(params => {
-      // Actualizar el valor de searchText cuando cambian los parámetros
       this.searchText = params['name'];
     });
   }
-  
-  get drinks(){
+
+  get drinks() {
     return this.DrinkService.drinkList;
   }
 }

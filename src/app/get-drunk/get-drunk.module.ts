@@ -15,6 +15,7 @@ import { SearchDrinkComponent } from './components/search-drink/search-drink.com
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { IngredientsListComponent } from './components/ingredients-list/ingredients-list.component';
 import { IngredientCardComponent } from './components/ingredient-card/ingredient-card.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { IngredientCardComponent } from './components/ingredient-card/ingredient
     NotFoundComponent,
     IngredientsListComponent,
     IngredientCardComponent,
-
+    CategoryComponent
   ],
   imports: [
     CommonModule,
