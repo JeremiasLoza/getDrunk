@@ -1,13 +1,17 @@
 <div class="bg-dark text-white">
   <div class="row p-4">
-      <div *ngFor="let drink of drinks"
-       class="col-md-3 col-sm-6 align-items-center">
-        <get-drunk-drink-card [drink]="drink"></get-drunk-drink-card>
-       </div>
-
+    <div
+      *ngFor="let drink of drinks"
+      class="col-md-3 col-sm-6 align-items-center"
+    >
+      <get-drunk-drink-card [drink]="drink"></get-drunk-drink-card>
+    </div>
+  </div>
+  <div *ngIf="!drinks || drinks.length === 0" class="text-center">
+    <h3>You don't have favorites yet, you can search here: </h3>
+    <a routerLink="/home" class="btn btn-primary mb-4">Go Home</a>
   </div>
 </div>
-<div class="bg-dark text-white my-pagination col-12 d-flex justify-content-center">
-
-
-</div>
+<div
+  class="bg-dark text-white my-pagination col-12 d-flex justify-content-center"
+></div>
