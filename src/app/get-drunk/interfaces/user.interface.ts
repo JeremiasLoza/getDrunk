@@ -12,6 +12,6 @@ export interface User {
 }
 
 export interface Favorite {
-  userId: string;
+  id: string;
   favorites: string[];
 }
