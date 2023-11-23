@@ -11,25 +11,25 @@ import { AuthLoginService } from 'src/app/get-drunk/services/auth.login.service'
 export class DashboardComponent implements OnInit, OnDestroy {
   public user!: User;
 
-  constructor(private loginService: AuthLoginService, private router: Router) {}
+  constructor(private loginService: AuthLoginService, private router: Router) { }
 
   ngOnDestroy(): void {
   }
 
   ngOnInit(): void {
     const value = localStorage.getItem('token');
-    
+
     this.loginService.searchById(value).subscribe(
-    (user: User[]) => {
-      this.user = user[0];
-    },
-    (error: any) => {
-      console.error('Error when searching for users by ID:', error);
-    }
-  );
+      (user: User[]) => {
+        this.user = user[0];
+      },
+      (error: any) => {
+        console.error('Error when searching for users by ID:', error);
+      }
+    );
   }
 
-  logout(){
+  logout() {
     this.loginService.logout();
     this.router.navigate(['/home']);
   }
