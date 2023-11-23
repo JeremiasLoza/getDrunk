@@ -37,7 +37,7 @@
       <div *ngIf="password.errors?.['required']">Password is required.</div>
     </div>
   </div>
-  <button type="submit" (click)="login()" class="btn btn-dark">Log in</button>
+  <button type="submit" (click)="login()" class="btn btn-dark" [disabled]="!loginForm.valid">Log in</button>
   <div class="mt-4">
     <span>Dont have an account? </span
     ><button type="submit" (click)="redirectToRegister()" class="btn btn-dark">
